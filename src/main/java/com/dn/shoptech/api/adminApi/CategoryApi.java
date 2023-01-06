@@ -31,6 +31,7 @@ public class CategoryApi {
     private final ResponsePage responsePage;
 
     @GetMapping("")
+    @RolesAllowed({"ROLE_ADMIN", "ROLE_MANAGER", "ROLE_EDITOR","ROLE_USER"})
     public ResponseEntity<Object> getCategories(@RequestParam(name = "page", defaultValue = "1") Integer page,
                                                 @RequestParam(name = "page", defaultValue = "10") Integer size) {
 

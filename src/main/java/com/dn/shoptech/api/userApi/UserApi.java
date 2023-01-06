@@ -1,4 +1,4 @@
-package com.dn.shoptech.api.publicApi;
+package com.dn.shoptech.api.userApi;
 
 import com.dn.shoptech.dto.UserDto;
 import com.dn.shoptech.exception.ApiRequestException;
@@ -17,8 +17,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.security.RolesAllowed;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.util.Map;
-import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor

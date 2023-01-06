@@ -61,10 +61,9 @@ public class WebConfigSecurity {
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
         http.authorizeRequests()
-                .antMatchers("/auth/**", "api/home/**").permitAll()
+                .antMatchers("/api/v1/auth/**", "/api/v1/**").permitAll()
                 .antMatchers("/api/v1/admin/**").authenticated()
                 .antMatchers("/api/user/**").permitAll()
-                .antMatchers("/api/public/**").permitAll()
                 .anyRequest().authenticated();
 
         http.exceptionHandling()

@@ -13,4 +13,5 @@ import org.springframework.transaction.annotation.Transactional;
 public interface ProductRepo extends JpaRepository<Product,Long> {
     Boolean existsByName(String name);
 
+//    Page<Product> getProductDiscount();
 }

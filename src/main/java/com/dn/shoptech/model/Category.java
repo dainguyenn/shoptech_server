@@ -37,8 +37,11 @@ public class Category implements Serializable {
     private LocalDate modified_at;
     private String modified_by;
 
-
     public Category(String name) {
+        this.name = name;
+    }
+    public Category(Long id,String name) {
+        this.id = id;
         this.name = name;
     }
 }

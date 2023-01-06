@@ -15,7 +15,7 @@ import javax.annotation.security.RolesAllowed;
 @RestController
 @RequestMapping("api/public")
 @RequiredArgsConstructor
-public class PublicApi {
+public class PublicApiTest {
     private final UserService userService;
 
 

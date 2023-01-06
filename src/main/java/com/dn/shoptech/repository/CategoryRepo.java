@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -19,4 +20,7 @@ public interface CategoryRepo extends JpaRepository<Category,Long> {
     Boolean existsByName(String name);
 
     Optional<Category> findByName(String name);
+
+    @Query("SELECT new Category(c.id,c.name) FROM Category c")
+    List<Category> getMenuCategory();
 }

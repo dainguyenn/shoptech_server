@@ -4,6 +4,7 @@ import com.dn.shoptech.model.Category;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,6 +13,7 @@ public interface CategoryService {
     <S extends Category> List<S> saveAll(Iterable<S> entities);
 
     Page<Category> findAll(Pageable pageable);
+    List<Category> findAll();
 
     <S extends Category> S save(S entity);
 
@@ -28,4 +30,6 @@ public interface CategoryService {
     <S extends Category> Optional<S> findOne(Example<S> example);
 
     void deleteAllByIdInBatch(List<Long> ids);
+
+    List<Category> getMenuCategory();
 }

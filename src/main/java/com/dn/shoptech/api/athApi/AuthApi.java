@@ -21,6 +21,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
@@ -31,6 +32,7 @@ import java.util.Set;
 
 @RestController
 @RequiredArgsConstructor
+@RequestMapping("api/v1")
 @Slf4j
 public class AuthApi {
     final AuthenticationManager authenticationManager;
@@ -40,7 +42,6 @@ public class AuthApi {
 
     @PostMapping("/auth/login")
     public ResponseEntity<?> login(@RequestBody AuthRequest request) {
-        log.info("USer : {}",request);
         try {
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(request.getUsername(), request.getPassword())
@@ -54,7 +55,7 @@ public class AuthApi {
             BeanUtils.copyProperties(user, userDto);
             userDto.setPassword(null);
             dataResp.put("Info", userDto);
-            dataResp.put("Token", responseToken);
+            dataResp.put("accessToken", responseToken.getAccessToken());
             return ResponseEntity.ok(dataResp);
 
         } catch (BadCredentialsException e) {

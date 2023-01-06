@@ -29,6 +29,11 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public List<Category> findAll() {
+        return categoryRepo.findAll();
+    }
+
+    @Override
     public <S extends Category> S save(S entity) {
         return categoryRepo.save(entity);
     }
@@ -43,6 +48,12 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void deleteAllByIdInBatch(List<Long> ids) {
         categoryRepo.deleteAllByIdInBatch(ids);
+    }
+
+    @Override
+    public List<Category> getMenuCategory() {
+        return categoryRepo.getMenuCategory();
+
     }
 
     @Override
